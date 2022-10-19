@@ -29,6 +29,18 @@ void Inserir(No **raiz,int x){//Percorre a árvore até o local correto pra inse
     }
 }
 
+No* Buscar(No *raiz,int x){
+    if(raiz != NULL){
+        if(raiz->info > x){
+            return Buscar(raiz->esq,x);
+        }
+        else if(raiz->info < x){
+            return Buscar(raiz->dir,x);
+        }
+    }
+    return raiz;
+}
+
 void Imprimir(No *raiz){//Imprime a árvore Em Ordem
     if(raiz != NULL){
         Imprimir(raiz->esq);
@@ -37,17 +49,41 @@ void Imprimir(No *raiz){//Imprime a árvore Em Ordem
     }
 }
 
-int main(){
-No* raiz = NULL;
-int x=1;
-while(1){//fica no laço de repetição enquanto x != 0 e imprime a árvore após sair do while
-    scanf("%d",&x);
-    if(x!=0){
-        Inserir(&raiz,x);
+void menu(No* raiz;){
+    int op=0,x;
+    No *raiz = NULL;
+    while(op != 9){
+        printf("1-Inserir na árvore\n");
+        printf("2-Buscar na árvore\n");
+        printf("3- Remover da ávore\n");
+        printf("4- Imprimir árvore\n");
+        printf("9- Encerrar programa\n");
+        printf("Escolha uma opção: ");
+        scanf("%d",&op);
+
+        switch(op){
+            case 1:
+                printf("\nDigite o elemento a ser inserido: ");
+                scanf("%d",&x);
+                Inserir(&raiz,x);
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                printf("\n");
+                Imprimir(raiz);
+                printf("\n\n");
+                break;
+            case 9:
+                break;
+        }
     }
-    else break;
 }
 
-Imprimir(raiz);
+int main(){
+    No* raiz = NULL;
+    menu(raiz);
 return 0;
 }
