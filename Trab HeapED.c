@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#define TAM 10 // tamanho da heap
+#define TAM 10 // tamanho da Heap
 
 void limpaHeap(int *heap){ //inicia a heap com 0 em todos as posições
     for(int i=0;i<TAM;i++){
